@@ -17,23 +17,16 @@ hello: .asciz "Hello World!\n"
 .global main
 .type main,@function
 main:
-    push rbp
-    mov rbp, rsp
-    sub rsp, 8
-
     mov rdi, hello@GOTPCREL[rip]
     call strlen
 
-
-    mov rdx, QWORD PTR [rbp-8]
-    mov rsi, rax
+    mov rdx, rax
+    mov rsi, hello@GOTPCREL[rip]
     mov edi, STDOUT_FILENO
 
     call write
 
     xor eax, eax
-    mov rsp, rbp
-    pop rbp
     ret
 
 
