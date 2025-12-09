@@ -9,9 +9,7 @@
  *
  * @rax := length of string
  */
-.ifdef LIBASM_EXTERN_SYMBOLS
 .extern strlen
-.endif
 
 
 /**
@@ -23,9 +21,8 @@
  *
  * @rax := length of string
  */
-.ifdef LIBASM_EXTERN_SYMBOLS
 .extern strlen_delim
-.endif
+
 
 /**
  * Compares two strings and gives the difference between them
@@ -37,8 +34,37 @@
  *
  * @eax := difference between the two strings (given as signed 32 bit value)
  */
-.ifdef LIBASM_EXTERN_SYMBOLS
 .extern strncmp
-.endif
+
+
+/**
+ * Places an unsigned quad onto the stack in null terminated ascii format.
+ * NOTE: rsp will be moved and rbp will be untouched
+ * aka. make sure to have actually allocated your local stack variables
+ * 
+ * This might or might now be callable in C, Depending on compiler
+ *
+ * @rdi := unsigned uquad to convert
+ *
+ * @rax := start of buffer (same as rsp)
+ * @rdx := length of the array (not including null byte)
+ */
+.extern uquad_to_ascii
+
+
+/**
+ * Places a signed quad onto the stack in null terminated ascii format.
+ * NOTE: rsp will be moved and rbp will be untouched
+ * aka. make sure to have actually allocated your local stack variables
+ * 
+ * This might or might now be callable in C, Depending on compiler
+ *
+ * @rdi := signed uquad to convert
+ *
+ * @rax := start of buffer (same as rsp)
+ * @rdx := length of the array (not including null byte)
+ */
+.extern iquad_to_ascii
+
 
 .endif /* LIBASM_STRING_S_ */

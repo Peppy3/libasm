@@ -15,6 +15,7 @@
 .macro proc name
 .type \name,@function
 \name:
+    endbr64
 .endm
 
 .endif /* LIBASM_INTERNAL_S_ */

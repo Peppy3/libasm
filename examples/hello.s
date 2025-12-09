@@ -4,7 +4,6 @@
 
 
 .include "libasm/string.s"
-.include "libasm/memory.s"
 .include "libasm/io.s"
 
 
@@ -14,7 +13,7 @@ hello: .asciz "Hello World!\n"
 
 .section .text
 
-.global main
+.globl main
 .type main,@function
 main:
     mov rdi, hello@GOTPCREL[rip]

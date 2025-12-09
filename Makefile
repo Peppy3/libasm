@@ -27,6 +27,8 @@ LIBASM_SFILES := \
 	$(LIBASM_DIR)/strlen.s\
 	$(LIBASM_DIR)/strncmp.s\
 	\
+	$(LIBASM_DIR)/quad_to_ascii.s\
+	\
 	$(LIBASM_DIR)/exit.s\
 	$(LIBASM_DIR)/process.s\
 	$(LIBASM_DIR)/mman.s\
